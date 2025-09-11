@@ -1,5 +1,6 @@
 ﻿public enum Categories
 {
+    All,
     General_Knowledge = 9,
     Entertainment_Books = 10,
     Entertainment_Film = 11,

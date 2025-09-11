@@ -16,3 +16,18 @@ C:\Users\jmfhpca\OneDrive - JM Family Enterprises\Desktop\CodeJam2\obj\Debug\net
 C:\Users\jmfaryl\Source\Repos\Code-Jam-2\obj\Debug\net9.0\CodeJam2.dll
 C:\Users\jmfaryl\Source\Repos\Code-Jam-2\obj\Debug\net9.0\refint\CodeJam2.dll
 C:\Users\jmfaryl\Source\Repos\Code-Jam-2\obj\Debug\net9.0\CodeJam2.pdb
+C:\Users\jmfhpca\OneDrive - JM Family Enterprises\Desktop\CodeJam2\obj\Debug\net9.0\CodeJam2.csproj.AssemblyReference.cache
+C:\Users\jmfhpca\OneDrive - JM Family Enterprises\Desktop\CodeJam2\bin\Debug\net9.0\Newtonsoft.Json.dll
+C:\Users\jmfhpca\OneDrive - JM Family Enterprises\Desktop\CodeJam2\bin\Debug\net9.0\Spectre.Console.dll
+C:\Users\jmfhpca\OneDrive - JM Family Enterprises\Desktop\CodeJam2\bin\Debug\net9.0\Spectre.Console.Cli.dll
+C:\Users\jmfhpca\OneDrive - JM Family Enterprises\Desktop\CodeJam2\bin\Debug\net9.0\de\Spectre.Console.Cli.resources.dll
+C:\Users\jmfhpca\OneDrive - JM Family Enterprises\Desktop\CodeJam2\bin\Debug\net9.0\es\Spectre.Console.Cli.resources.dll
+C:\Users\jmfhpca\OneDrive - JM Family Enterprises\Desktop\CodeJam2\bin\Debug\net9.0\fr\Spectre.Console.Cli.resources.dll
+C:\Users\jmfhpca\OneDrive - JM Family Enterprises\Desktop\CodeJam2\bin\Debug\net9.0\it\Spectre.Console.Cli.resources.dll
+C:\Users\jmfhpca\OneDrive - JM Family Enterprises\Desktop\CodeJam2\bin\Debug\net9.0\ja\Spectre.Console.Cli.resources.dll
+C:\Users\jmfhpca\OneDrive - JM Family Enterprises\Desktop\CodeJam2\bin\Debug\net9.0\ko\Spectre.Console.Cli.resources.dll
+C:\Users\jmfhpca\OneDrive - JM Family Enterprises\Desktop\CodeJam2\bin\Debug\net9.0\pt\Spectre.Console.Cli.resources.dll
+C:\Users\jmfhpca\OneDrive - JM Family Enterprises\Desktop\CodeJam2\bin\Debug\net9.0\ru\Spectre.Console.Cli.resources.dll
+C:\Users\jmfhpca\OneDrive - JM Family Enterprises\Desktop\CodeJam2\bin\Debug\net9.0\sv\Spectre.Console.Cli.resources.dll
+C:\Users\jmfhpca\OneDrive - JM Family Enterprises\Desktop\CodeJam2\bin\Debug\net9.0\zh-Hans\Spectre.Console.Cli.resources.dll
+C:\Users\jmfhpca\OneDrive - JM Family Enterprises\Desktop\CodeJam2\obj\Debug\net9.0\CodeJam2.csproj.Up2Date

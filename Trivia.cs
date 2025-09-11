@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json.Linq;
+﻿//using Newtonsoft.Json.Linq;
 
 public class TriviaGame
 {
@@ -73,11 +73,12 @@ public class TriviaGame
               ));
 
         }
-    public bool MakeGuess(int guess)
-    {
-        if (!{1,2,3,4}.Contains(guess)){
-            //log sum type
-            return false;
-        }
+        /* public bool MakeGuess(int guess)
+         {
+             if (!{1,2,3,4}.Contains(guess)){
+                 //log sum type
+                 return false;
+             }
+         }*/
     }
 }
