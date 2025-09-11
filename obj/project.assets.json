@@ -8,23 +8,23 @@
     "net9.0": []
   },
   "packageFolders": {
-    "C:\\Users\\jmfikwi\\.nuget\\packages\\": {},
+    "C:\\Users\\jmfhpca\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jmfikwi\\Downloads\\ITS Academy\\Week3\\9-11-25\\CodeJam2\\CodeJam2.csproj",
+      "projectUniqueName": "C:\\Users\\jmfhpca\\OneDrive - JM Family Enterprises\\Desktop\\CodeJam2\\CodeJam2.csproj",
       "projectName": "CodeJam2",
-      "projectPath": "C:\\Users\\jmfikwi\\Downloads\\ITS Academy\\Week3\\9-11-25\\CodeJam2\\CodeJam2.csproj",
-      "packagesPath": "C:\\Users\\jmfikwi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jmfikwi\\Downloads\\ITS Academy\\Week3\\9-11-25\\CodeJam2\\obj\\",
+      "projectPath": "C:\\Users\\jmfhpca\\OneDrive - JM Family Enterprises\\Desktop\\CodeJam2\\CodeJam2.csproj",
+      "packagesPath": "C:\\Users\\jmfhpca\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\jmfhpca\\OneDrive - JM Family Enterprises\\Desktop\\CodeJam2\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\jmfikwi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\jmfhpca\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
