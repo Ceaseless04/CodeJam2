@@ -13,3 +13,6 @@ C:\Users\jmfhpca\OneDrive - JM Family Enterprises\Desktop\CodeJam2\obj\Debug\net
 C:\Users\jmfhpca\OneDrive - JM Family Enterprises\Desktop\CodeJam2\obj\Debug\net9.0\CodeJam2.pdb
 C:\Users\jmfhpca\OneDrive - JM Family Enterprises\Desktop\CodeJam2\obj\Debug\net9.0\CodeJam2.genruntimeconfig.cache
 C:\Users\jmfhpca\OneDrive - JM Family Enterprises\Desktop\CodeJam2\obj\Debug\net9.0\ref\CodeJam2.dll
+C:\Users\jmfaryl\Source\Repos\Code-Jam-2\obj\Debug\net9.0\CodeJam2.dll
+C:\Users\jmfaryl\Source\Repos\Code-Jam-2\obj\Debug\net9.0\refint\CodeJam2.dll
+C:\Users\jmfaryl\Source\Repos\Code-Jam-2\obj\Debug\net9.0\CodeJam2.pdb

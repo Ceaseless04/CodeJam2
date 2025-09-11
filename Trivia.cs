@@ -16,6 +16,8 @@
     public bool IsOver => turn >= Questions.Count;
     // show game over game.IsOver
 
+    public bool MakeGuess(string answer) => answer == CorrectAnswer;
+
     public TriviaGame(int numQuestions=10, int numPlayers=1, string difficultyInput="Easy", string categoryInput="All")
     {
         NumQuestions = numQuestions;
