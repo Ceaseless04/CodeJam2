@@ -15,6 +15,7 @@ public class TriviaGame
 
     public Categories Category { get; set; }
 
+
     public TriviaGame(int numQuestions = 10, int numPlayers = 1, string difficultyInput = "Easy", string categoryInput = "All")
     {
         NumQuestions = numQuestions;
@@ -35,6 +36,8 @@ public class TriviaGame
         Category = category;
     }
 
+    public bool IsOver() => Turn >= Questions.Count;
+    // show game over game.IsOver
 
 
     public async Task MakeGame()
@@ -69,6 +72,12 @@ public class TriviaGame
                   this.Difficulty
               ));
 
+        }
+    public bool MakeGuess(int guess)
+    {
+        if (!{1,2,3,4}.Contains(guess)){
+            //log sum type
+            return false;
         }
     }
 }

@@ -1,1 +1,63 @@
+## Build results
+bin/
+obj/
+[Bb]uild/
+[Ll]ogs/
+
+## User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Visual Studio Code workspace
+.vscode/
+
+## Visual Studio folder
 .vs/
+
+## NuGet packages
+*.nupkg
+*.snupkg
+packages/
+*.nuspec
+
+## Dotnet CLI
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+## ASP.NET
+appsettings.*.json
+appsettings.Development.json
+
+## Entity Framework
+migrations/
+
+## Rider IDE
+.idea/
+
+## Others
+*.dbmdl
+*.pdb
+*.cache
+*.log
+*.vsidx
+*.pidb
+*.svclog
+*.scc
+
+## Temporary files
+*.tmp
+*.bak
+*.swp
+*.swo
+
+## Test results
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+
+## Publish output
+publish/

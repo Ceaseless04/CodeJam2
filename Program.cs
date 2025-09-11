@@ -1,29 +1,47 @@
-﻿using System;
+using Spectre.Console;
+using Spectre.Console.Cli;
+using System;
+using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
+
+
 class Program
 {
     static async Task Main(string[] args)
     {
-        //// have a cool console WELCOME TO TRIVIA sign or something
-        //Console.ForegroundColor = ConsoleColor.Cyan;
-        //Console.WriteLine("┌───────────────────────────────┐");
-        //Console.WriteLine("│      Welcome to Trivia!       │");
-        //Console.WriteLine("└───────────────────────────────┘\n");
-        //Console.ResetColor();
+        var app = new CommandApp<FileSizeCommand>();
+        app.Run(args);
+    }
 
-        // loop for game
-        // while(!game.IsOver())
-        
-        var game = new TriviaGame(3);
-
-        await game.MakeGame();
-
-        foreach (var q in game.Questions)
+    internal sealed class FileSizeCommand : Command<FileSizeCommand.Settings>
+    {
+        public sealed class Settings : CommandSettings
         {
-            Console.WriteLine("Question: " + q.Text);
-            for (int i = 0; i < q.Options.Length; i++)
-            {
-                Console.WriteLine($"{i + 1}. {q.Options[i]}");
-            }
+
+            [CommandOption("-p|--players")]
+            [DefaultValue(1)]
+            public int NumPlayers { get; init; }
+            [CommandOption("-n|--questions")]
+            [DefaultValue(1)]
+            public int NumQuestions { get; init; }
+
+            [CommandOption("-d|--difficulty")]
+            [DefaultValue("Easy")]
+            public string? Difficulty { get; init; }
+
+            [CommandOption("-c|--category")]
+            [DefaultValue("All")]
+            public string? Category { get; init; }
+
+            
+        }
+
+        public override int Execute([NotNull] CommandContext context, [NotNull] Settings settings)
+        {
+            TriviaGame game = new TriviaGame(settings.NumQuestions, settings.NumPlayers, settings.Difficulty, settings.Category);
+
+            return 0;
+
         }
     }
 }
