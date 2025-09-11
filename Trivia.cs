@@ -12,13 +12,10 @@
     public Difficulties Difficulty { get; set; }
 
     public Categories Category { get; set; }
-    
-    public bool IsOver => turn >= Questions.Count;
-    // show game over game.IsOver
 
-    public bool MakeGuess(string answer) => answer == CorrectAnswer;
 
-    public TriviaGame(int numQuestions=10, int numPlayers=1, string difficultyInput="Easy", string categoryInput="All")
+
+    public TriviaGame(int numQuestions = 10, int numPlayers = 1, string difficultyInput = "Easy", string categoryInput = "All")
     {
         NumQuestions = numQuestions;
         NumPlayers = numPlayers;
@@ -38,19 +35,27 @@
         Category = category;
     }
 
+    public bool IsOver() => turn >= Questions.Count;
+    // show game over game.IsOver
 
-
-
-public void MakeGame()
+    public bool MakeGuess(string guess)
+    {
+        if (!{1,2,3,4}.Contains(guess)){
+            //log sum type
+            return false
+        }
+    }
+    public void MakeGame()
     {
         using var client = new HttpClient();
         string url = $"https://opentdb.com/api.php?amount=10";
-       
+
         var response = await client.GetStringAsync(url);
         responseTask.Wait();
         string response = responseTask.Result;
 
-     
 
-       // public bool IsOver() => turn 
+
+        // public bool IsOver() => turn 
     }
+}
