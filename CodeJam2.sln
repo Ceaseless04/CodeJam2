@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36414.22 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeJam2", "CodeJam2.csproj", "{53579750-A179-D24E-076B-D5723BF80058}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{53579750-A179-D24E-076B-D5723BF80058}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53579750-A179-D24E-076B-D5723BF80058}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53579750-A179-D24E-076B-D5723BF80058}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53579750-A179-D24E-076B-D5723BF80058}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EC53BBDB-0499-4540-B225-91A6EE6E9F8D}
+	EndGlobalSection
+EndGlobal

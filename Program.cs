@@ -1,20 +1,6 @@
 ﻿using System;
 
-class Game
-{
-    //questions
-    //category
-    //correctanswer
-    //options
-    //difficulty
 
-    //makegame()
-    //api call
-
-    //isover()
-
-
-}
 
 class Program
 {
