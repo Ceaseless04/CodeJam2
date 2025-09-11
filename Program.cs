@@ -41,6 +41,7 @@ class Program
         {
             TriviaGame game = new TriviaGame(settings.NumQuestions, settings.NumPlayers, settings.Difficulty, settings.Category);
 
+
             return 0;
         }
     }
