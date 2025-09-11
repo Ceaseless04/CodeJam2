@@ -1,5 +1,6 @@
 ﻿public enum Categories
 {
+    All,
     General_Knowledge = 9,
     Entertainment_Books = 10,
     Entertainment_Film = 11,
@@ -36,6 +37,7 @@ public enum Difficulties
 
 public class Question
 {
+    public string Text { get; set; }
     public string CorrectAnswer { get; set; }
     public string[] Options { get; set; }
 
@@ -43,7 +45,8 @@ public class Question
 
     Difficulties Difficulty { get; set; }
 
-    Question(string correctAnswer, string[] options, Categories category, Difficulties difficulty){
+   public Question(string text, string correctAnswer, string[] options, Categories category, Difficulties difficulty){
+        Text = text;
         CorrectAnswer = correctAnswer;
         Options = options;
         Category = category;

@@ -1,8 +1,10 @@
-﻿public class TriviaGame
-{
-    public List<Question> Questions { get; set; }
+﻿using Newtonsoft.Json.Linq;
 
-    public List<Player> Players { get; set; }
+public class TriviaGame
+{
+    public List<Question> Questions { get; set; } = new List<Question>();
+    public List<Player> Players { get; set; } = new List<Player>();
+
     public int Turn { get; set; }
 
     public int NumQuestions { get; set; }
@@ -13,7 +15,7 @@
 
     public Categories Category { get; set; }
 
-    public TriviaGame(int numQuestions=10, int numPlayers=1, string difficultyInput="Easy", string categoryInput="All")
+    public TriviaGame(int numQuestions = 10, int numPlayers = 1, string difficultyInput = "Easy", string categoryInput = "All")
     {
         NumQuestions = numQuestions;
         NumPlayers = numPlayers;
@@ -35,17 +37,38 @@
 
 
 
-
-public void MakeGame()
+    public async Task MakeGame()
     {
         using var client = new HttpClient();
         string url = $"https://opentdb.com/api.php?amount=10";
-       
-        var response = await client.GetStringAsync(url);
-        responseTask.Wait();
-        string response = responseTask.Result;
 
-     
+        string json = await client.GetStringAsync(url);
 
-       // public bool IsOver() => turn 
+        var data = Newtonsoft.Json.Linq.JObject.Parse(json);
+        var results = data["results"];
+
+        Questions = new List<Question>();
+
+        foreach (var q in results)
+        {
+            string correct = System.Net.WebUtility.HtmlDecode((string)q["correct_answer"]);
+
+            var incorrect = new List<string>();
+            foreach (var a in q["incorrect_answers"])
+                incorrect.Add(System.Net.WebUtility.HtmlDecode((string)a));
+
+            var options = new List<string>(incorrect);
+            options.Add(correct);
+            string questionText = System.Net.WebUtility.HtmlDecode((string)q["question"]);
+
+            Questions.Add(new Question(
+                  questionText,
+                  correct,
+                  options.ToArray(),
+                  this.Category,
+                  this.Difficulty
+              ));
+
+        }
     }
+}
