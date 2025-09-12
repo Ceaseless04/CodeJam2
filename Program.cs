@@ -46,6 +46,10 @@ class Program
             {
                 Question currQuestion = game.Questions[game.Turn];
                 Console.WriteLine(currQuestion.Text);
+                foreach (string option in currQuestion.Options)
+                {
+                    Console.WriteLine(option);
+                }
                 foreach (Player player in game.Players)
                 {
                     Console.WriteLine($"{player.Name} make your guess: ");
