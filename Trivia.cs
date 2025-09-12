@@ -1,5 +1,7 @@
 ﻿//using Newtonsoft.Json.Linq;
 
+using System.Diagnostics;
+
 public class TriviaGame
 {
     public List<Question> Questions { get; set; } = new List<Question>();
@@ -83,12 +85,25 @@ public class TriviaGame
               ));
 
         }
-        /* public bool MakeGuess(int guess)
-         {
-             if (!{1,2,3,4}.Contains(guess)){
-                 //log sum type
-                 return false;
-             }
-         }*/
+
+
+        public bool MakeGuess(string guess)
+    {
+        if (!new[] { "1", "2", "3", "4" }.Contains(guess))
+        {
+            var log = new GuessLog(GuessResult.IncorrectGuess, guess, "Invalid guess.");
+            Console.WriteLine(log);
+            return false;
+        }
+
+        bool isCorrect = guess == correctAnswer;
+        var result  = isCorrect ? GuessResult.Correct : GuessResult.Incorrect;
+        var message = isCorrect ? "Correct guess!" : "Incorrect guess.";
+        var resultLog = new GuessLog(result, guess, message);
+
+        Console.WriteLine(resultLog);
+        return isCorrect;
+        }
+
     }
 }
