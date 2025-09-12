@@ -58,7 +58,7 @@ class Program
                 int choice = 1;
                 foreach (string option in currQuestion.Options)
                 {
-                    Console.WriteLine($"{choice}. {option}"); choice++;
+                    Console.WriteLine($"{choice}. {option}");
                     choice++;
                 }
                 foreach (Player player in game.Players)
