@@ -1,17 +1,17 @@
 ﻿public enum Categories
 {
     All = 8,
-    General_Knowledge = 9,
-    Entertainment_Books = 10,
-    Entertainment_Film = 11,
-    Entertainment_Music = 12,
-    Entertainment_Musicals_Theatres = 13,
-    Entertainment_Television = 14,
-    Entertainment_Video_Games = 15,
-    Entertainment_Board_Games = 16,
-    Science_Nature = 17,
-    Science_Computers = 18,
-    Science_Mathematics = 19,
+    Knowledge = 9,
+    Books = 10,
+    Film = 11,
+    Music = 12,
+    Musicals_Theatres = 13,
+    Television = 14,
+    Video_Games = 15,
+    Board_Games = 16,
+    Nature = 17,
+    Computers = 18,
+    Mathematics = 19,
     Mythology = 20,
     Sports = 21,
     Geography = 22,
@@ -21,10 +21,10 @@
     Celebrities = 26,
     Animals = 27,
     Vehicles = 28,
-    Entertainment_Comics = 29,
-    Science_Gadgets = 30,
-    Entertainment_Japanese_Anime_Manga = 31,
-    Entertainment_Cartoon_Animations = 32
+    Comics = 29,
+    Gadgets = 30,
+    Anime = 31,
+    Cartoons = 32
 }
 
 public enum Difficulties

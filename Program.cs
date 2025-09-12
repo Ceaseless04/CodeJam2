@@ -9,28 +9,44 @@ class Program
 {
     static async Task Main(string[] args)
     {
-        var app = new CommandApp<FileSizeCommand>();
+        var app = new CommandApp();
+        app.Configure(config =>
+        {
+            config.AddCommand<PlayCommand>("play")
+                  .WithDescription("Start a trivia game");
+
+            config.AddCommand<CategoriesCommand>("categories")
+                  .WithDescription("List all valid trivia categories");
+
+            config.AddCommand<DifficultiesCommand>("difficulties")
+                  .WithDescription("List all valid diificulties");
+        });
+
         app.Run(args);
     }
 
-    internal sealed class FileSizeCommand : AsyncCommand<FileSizeCommand.Settings>
+    internal sealed class PlayCommand : AsyncCommand<PlayCommand.Settings>
     {
         public sealed class Settings : CommandSettings
         {
 
             [CommandOption("-p|--players")]
             [DefaultValue(1)]
+            [Description("The number of players")]
             public int NumPlayers { get; init; }
             [CommandOption("-n|--questions")]
             [DefaultValue(10)]
+            [Description("The number of questions")]
             public int NumQuestions { get; init; }
 
             [CommandOption("-d|--difficulty")]
             [DefaultValue("All")]
+            [Description("The level of difficulty")]
             public string? Difficulty { get; init; }
 
             [CommandOption("-c|--category")]
             [DefaultValue("All")]
+            [Description("The category of trivia")]
             public string? Category { get; init; }
 
 
@@ -65,7 +81,11 @@ class Program
                 {
                     AnsiConsole.Markup($"\n[blue]{player.Name}[/], make your guess: ");
                     string guess = Console.ReadLine();
-                    game.MakeGuess(guess, player, currQuestion);
+                    while(!game.MakeGuess(guess, player, currQuestion))
+                    {
+                        AnsiConsole.MarkupLine("[red]Invalid guess, try again[/]:");
+                        guess = Console.ReadLine();
+                    }
                 }
                 //show score
                 foreach (Player player in game.Players)
@@ -131,14 +151,45 @@ class Program
             //show winner
             int maxScore = game.Players.Max(p => p.Score);
             List<Player> winners = game.Players.Where(p => p.Score == maxScore).ToList();
+
             foreach (Player player in winners)
             {
-                Console.WriteLine($"{player.Name} won with a score of {player.Score}");
+                AnsiConsole.MarkupLine($"[bold yellow]{player.Name}[/] [green]won[/] with a score of [bold cyan]{player.Score}[/]");
             }
+
 
 
             return 0;
 
+        }
+    }
+
+    internal sealed class CategoriesCommand : Command<CategoriesCommand.Settings>
+    {
+        public sealed class Settings : CommandSettings { }
+
+        public override int Execute([NotNull] CommandContext context, [NotNull] Settings settings)
+        {
+
+            foreach (var category in Enum.GetValues(typeof(Categories))){
+                AnsiConsole.MarkupLine($"[bold yellow]{category}[/]");
+            }
+            return 0;
+        }
+    }
+
+    internal sealed class DifficultiesCommand : Command<DifficultiesCommand.Settings>
+    {
+        public sealed class Settings : CommandSettings { }
+
+        public override int Execute([NotNull] CommandContext context, [NotNull] Settings settings)
+        {
+
+            foreach (var difficulty in Enum.GetValues(typeof(Difficulties)))
+            {
+                AnsiConsole.MarkupLine($"[bold yellow]{difficulty}[/]");
+            }
+            return 0;
         }
     }
 }

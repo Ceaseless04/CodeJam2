@@ -123,7 +123,7 @@ public class TriviaGame
 
         bool isCorrect = question.Options[guessInt] == question.CorrectAnswer;
         player.updateScore(isCorrect);
-        return isCorrect;
+        return true;
     }
 }
 
