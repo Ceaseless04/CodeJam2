@@ -1,10 +1,5 @@
 ﻿using Newtonsoft.Json.Linq;
 using Spectre.Console;
-using Spectre.Console.Cli;
-using System;
-using System.ComponentModel;
-using System.Diagnostics.CodeAnalysis;
-
 using System.Diagnostics;
 
 public class TriviaGame
@@ -51,7 +46,11 @@ public class TriviaGame
 
         for (int i = 0; i < NumPlayers; i++)
         {
-            AnsiConsole.Markup($"[yellow]Enter Player{i}'s name:[/] ");
+            AnsiConsole.Write(
+                 new Panel(new Markup($"[bold yellow]ENTER PLAYER {i+1}'S NAME:[/]"))
+                    .Border(BoxBorder.Square)
+                    .BorderStyle(new Style(Color.Yellow))
+    );
             string? name = Console.ReadLine();
             Players.Add(new Player(name));
         }
