@@ -1,4 +1,9 @@
 ﻿using Newtonsoft.Json.Linq;
+using Spectre.Console;
+using Spectre.Console.Cli;
+using System;
+using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
 
 using System.Diagnostics;
 
@@ -46,7 +51,7 @@ public class TriviaGame
 
         for (int i = 0; i < NumPlayers; i++)
         {
-            Console.WriteLine($"Enter Player{i}'s name: "); //prob can use library to pretty print this later
+            AnsiConsole.Markup($"[yellow]Enter Player{i}'s name:[/] ");
             string? name = Console.ReadLine();
             Players.Add(new Player(name));
         }
