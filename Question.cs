@@ -1,6 +1,6 @@
 ﻿public enum Categories
 {
-    All,
+    All = 8,
     General_Knowledge = 9,
     Entertainment_Books = 10,
     Entertainment_Film = 11,
@@ -29,9 +29,10 @@
 
 public enum Difficulties
 {
-    Easy = 0,
-    Medium = 1,
-    Hard = 2
+    all = 0,
+    easy = 1,
+    medium = 2,
+    hard = 3
 }
 
 
