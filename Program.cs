@@ -1,4 +1,4 @@
-using Spectre.Console;
+﻿using Spectre.Console;
 using Spectre.Console.Cli;
 using System;
 using System.ComponentModel;
@@ -76,6 +76,58 @@ class Program
 
                 
             }
+
+            //score table and screen
+            AnsiConsole.Write(
+                new FigletText("FINAL SCORES")
+                .Centered().
+                Color(Color.Yellow));
+
+            var finalScoreTable = new Table()
+                .Border(TableBorder.HeavyEdge)          
+                .BorderColor(Color.White)
+                .Expand()                                
+                .Centered()                              
+                .AddColumn(new TableColumn("[green]PLAYER[/]").Centered())
+                .AddColumn(new TableColumn("[green]SCORE[/]").Centered());
+
+            foreach (var player in game.Players)
+            {
+                finalScoreTable.AddRow($"[white]{player.Name}[/]", $"[white]{player.Score}[/]");
+            }
+
+            AnsiConsole.Write(finalScoreTable);
+
+
+            AnsiConsole.Write(new Rule("").RuleStyle("bold yellow").Centered());
+
+            int totalQuestions = game.Questions.Count;
+
+            
+
+           foreach (var player in game.Players)
+            {
+                int correct = player.Score;
+                int total = game.Questions.Count;
+                int incorrect = total - correct;
+
+                int barWidth = 100;
+                int correctWidth = (int)((double)correct / total * barWidth);
+                int incorrectWidth = barWidth - correctWidth;
+
+                string bar = $"[green]{new string('█', correctWidth)}[/][red]{new string('█', incorrectWidth)}[/]";
+
+                var panel = new Panel(bar)
+                    .Header($"[bold white]{player.Name}[/] — [white]{correct}[/]/[white]{total}[/] correct")
+                    .Border(BoxBorder.Square)
+                    .BorderColor(Color.White);
+
+                AnsiConsole.Write(panel);
+            }
+
+            AnsiConsole.MarkupLine("[green]Thank you for playing![/]\n");
+
+   
             //show winner
             int maxScore = game.Players.Max(p => p.Score);
             List<Player> winners = game.Players.Where(p => p.Score == maxScore).ToList();
