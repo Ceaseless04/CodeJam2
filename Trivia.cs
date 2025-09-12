@@ -96,13 +96,13 @@ public class TriviaGame
         }
     }
     
-    public bool MakeGuess(string guess)
+    public bool MakeGuess(string guess, Player player, Question question)
     {
         if (!new[] { "1", "2", "3", "4" }.Contains(guess))
             return false;
 
-        bool isCorrect = guess == CorrectAnswer;
-        updateScore(isCorrect);
+        bool isCorrect = guess == question.CorrectAnswer;
+        player.updateScore(isCorrect);
         return isCorrect;
     }
 }

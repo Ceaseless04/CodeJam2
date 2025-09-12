@@ -13,7 +13,7 @@ class Program
         app.Run(args);
     }
 
-    internal sealed class FileSizeCommand : Command<FileSizeCommand.Settings>
+    internal sealed class FileSizeCommand : AsyncCommand<FileSizeCommand.Settings>
     {
         public sealed class Settings : CommandSettings
         {
@@ -26,19 +26,49 @@ class Program
             public int NumQuestions { get; init; }
 
             [CommandOption("-d|--difficulty")]
-            [DefaultValue("Easy")]
+            [DefaultValue("All")]
             public string? Difficulty { get; init; }
 
             [CommandOption("-c|--category")]
             [DefaultValue("All")]
             public string? Category { get; init; }
 
-            
+
         }
 
-        public override int Execute([NotNull] CommandContext context, [NotNull] Settings settings)
+
+        public override async Task<int> ExecuteAsync([NotNull] CommandContext context, [NotNull] Settings settings)
         {
             TriviaGame game = new TriviaGame(settings.NumQuestions, settings.NumPlayers, settings.Difficulty, settings.Category);
+            await game.MakeGame();
+
+            while (!game.IsOver())
+            {
+                Question currQuestion = game.Questions[game.Turn];
+                Console.WriteLine(currQuestion.Text);
+                foreach (Player player in game.Players)
+                {
+                    Console.WriteLine($"{player.Name} make your guess: ");
+                    string guess = Console.ReadLine();
+                    game.MakeGuess(guess, player, currQuestion);
+                }
+                //show score
+                foreach (Player player in game.Players)
+                {
+                    Console.WriteLine($"{player}: {player.Score}");
+                }
+                game.Turn++;
+
+                
+            }
+            //show winner
+            int maxScore = game.Players.Max(p => p.Score);
+            List<Player> winners = game.Players.Where(p => p.Score == maxScore).ToList();
+            foreach (Player player in winners)
+            {
+                Console.WriteLine($"{player.Name} won with a score of {player.Score}");
+            }
+
 
             return 0;
 
