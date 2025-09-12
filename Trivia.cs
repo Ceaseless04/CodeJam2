@@ -81,19 +81,19 @@ public class TriviaGame
     {
         if (!new[] { "1", "2", "3", "4" }.Contains(guess))
         {
-            var log = new GuessLog(GuessResult.IncorrectGuess, guess, "Incorrect guess.");
+            var log = new GuessLog(GuessResult.IncorrectGuess, guess, "Invalid guess.");
             Console.WriteLine(log);
             return false;
         }
 
         bool isCorrect = guess == correctAnswer;
         var result  = isCorrect ? GuessResult.Correct : GuessResult.Incorrect;
-        var message = isCorrect ? "Correct." : "Incorrect.";
+        var message = isCorrect ? "Correct guess!" : "Incorrect guess.";
         var resultLog = new GuessLog(result, guess, message);
 
         Console.WriteLine(resultLog);
         return isCorrect;
-    }
+        }
 
     }
 }
