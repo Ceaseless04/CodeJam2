@@ -105,8 +105,6 @@ public class TriviaGame
 
         }
     }
-    /*
-
         public bool MakeGuess(string guess){
         if (!new[] { "1", "2", "3", "4" }.Contains(guess))
         {
@@ -122,8 +120,9 @@ public class TriviaGame
 
         Console.WriteLine(resultLog);
         return isCorrect;
-        }*/
+        }
 
     }
+}
 
 
