@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "kLFVI+z1SJs=",
+  "dgSpecHash": "kBb9Si0ZSU4=",
   "success": true,
-  "projectFilePath": "C:\\Users\\jmfhpca\\OneDrive - JM Family Enterprises\\Desktop\\CodeJam2\\CodeJam2.csproj",
+  "projectFilePath": "C:\\Users\\jmfikwi\\Downloads\\ITS Academy\\Week3\\9-11-25\\CodeJam2\\CodeJam2.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\jmfhpca\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
-    "C:\\Users\\jmfhpca\\.nuget\\packages\\spectre.console\\0.51.1\\spectre.console.0.51.1.nupkg.sha512",
-    "C:\\Users\\jmfhpca\\.nuget\\packages\\spectre.console.cli\\0.51.1\\spectre.console.cli.0.51.1.nupkg.sha512"
+    "C:\\Users\\jmfikwi\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\jmfikwi\\.nuget\\packages\\spectre.console\\0.51.1\\spectre.console.0.51.1.nupkg.sha512",
+    "C:\\Users\\jmfikwi\\.nuget\\packages\\spectre.console.cli\\0.51.1\\spectre.console.cli.0.51.1.nupkg.sha512"
   ],
   "logs": []
 }
