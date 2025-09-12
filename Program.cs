@@ -54,9 +54,11 @@ class Program
             {
                 Question currQuestion = game.Questions[game.Turn];
                 Console.WriteLine(currQuestion.Text);
+                int choice = 1;
                 foreach (string option in currQuestion.Options)
                 {
-                    Console.WriteLine(option);
+                    Console.WriteLine($"{choice}. {option}");
+                    choice++;
                 }
                 foreach (Player player in game.Players)
                 {
@@ -67,7 +69,7 @@ class Program
                 //show score
                 foreach (Player player in game.Players)
                 {
-                    Console.WriteLine($"{player}: {player.Score}");
+                    Console.WriteLine($"{player.Name}: {player.Score}");
                 }
                 game.Turn++;
 
