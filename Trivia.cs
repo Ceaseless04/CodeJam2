@@ -39,13 +39,20 @@ public class TriviaGame
     }
 
     public bool IsOver() => Turn >= Questions.Count;
-    // show game over game.IsOver
 
 
     public async Task MakeGame()
     {
+
+        for (int i = 0; i < NumPlayers; i++)
+        {
+            Console.WriteLine($"Enter Player{i}'s name: "); //prob can use library to pretty print this later
+            string? name = Console.ReadLine();
+            Players.Add(new Player(name));
+        }
+
         using var client = new HttpClient();
-        string url = $"https://opentdb.com/api.php?amount=10";
+        string url = $"https://opentdb.com/api.php?amount=10"; //$"https://opentdb.com/api.php?amount={numQuestions}"
 
         string json = await client.GetStringAsync(url);
 
@@ -60,7 +67,9 @@ public class TriviaGame
 
             var incorrect = new List<string>();
             foreach (var a in q["incorrect_answers"])
+            {
                 incorrect.Add(System.Net.WebUtility.HtmlDecode((string)a));
+            }
 
             var options = new List<string>(incorrect);
             Random random = new Random();
@@ -85,6 +94,7 @@ public class TriviaGame
               ));
 
         }
+    }
 
 
         public bool MakeGuess(string guess)
