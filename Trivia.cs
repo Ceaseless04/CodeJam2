@@ -1,4 +1,4 @@
-﻿//using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
 
 using System.Diagnostics;
 
@@ -52,7 +52,17 @@ public class TriviaGame
         }
 
         using var client = new HttpClient();
-        string url = $"https://opentdb.com/api.php?amount=10"; //$"https://opentdb.com/api.php?amount={numQuestions}"
+        string url = $"https://opentdb.com/api.php?amount={NumQuestions}";
+
+        if (Category != Categories.All)
+        {
+            url += $"&category={(int)Category}";
+        }
+
+        if (Difficulty != Difficulties.Easy)
+        {
+            url += $"&difficulty={Difficulty}";
+        }
 
         string json = await client.GetStringAsync(url);
 
@@ -99,10 +109,14 @@ public class TriviaGame
     public bool MakeGuess(string guess, Player player, Question question)
     {
         if (!new[] { "1", "2", "3", "4" }.Contains(guess))
+        {
             return false;
+        }
 
         bool isCorrect = guess == question.CorrectAnswer;
         player.updateScore(isCorrect);
         return isCorrect;
     }
 }
+
+
