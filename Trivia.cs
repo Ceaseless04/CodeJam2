@@ -25,14 +25,14 @@ public class TriviaGame
 
         if (!Enum.TryParse(difficultyInput, true, out Difficulties difficulty))
         {
-            Console.WriteLine("Invalid difficulty. Defaulting to Easy.");
+            AnsiConsole.MarkupLine("[red]Invalid difficulty, deafaulting to all\n");
             difficulty = Difficulties.easy;
         }
         Difficulty = difficulty;
 
         if (!Enum.TryParse(categoryInput, true, out Categories category))
         {
-            Console.WriteLine("Invalid category. Defaulting to Easy.");
+            AnsiConsole.MarkupLine("[red]Invalid category, deafaulting to all[/]\n");
             category = Categories.All;
         }
         Category = category;

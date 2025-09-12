@@ -2,7 +2,7 @@
   "profiles": {
     "CodeJam2": {
       "commandName": "Project",
-      "commandLineArgs": "-p 1 -n 5 -d medium -c vehicles"
+      "commandLineArgs": "-p 1 -n 5 -d medium -c fake"
     }
   }
 }
