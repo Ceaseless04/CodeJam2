@@ -17,7 +17,7 @@ public class Player
         Score = 0;
         _numberOfPlayers++;
     }
-    public void RecordGuess(bool isCorrect)
+    public void updateScore (bool isCorrect)
     {
         if (isCorrect) Score++;
     }
