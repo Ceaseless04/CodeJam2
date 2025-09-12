@@ -61,9 +61,19 @@ public class TriviaGame
                 incorrect.Add(System.Net.WebUtility.HtmlDecode((string)a));
 
             var options = new List<string>(incorrect);
-            options.Add(correct);
-            string questionText = System.Net.WebUtility.HtmlDecode((string)q["question"]);
+            Random random = new Random();
+            int randomInsert = random.Next(0, 4);
 
+            if (randomInsert == 3)
+            {
+                options.Add(correct);
+            }
+            else
+            {
+                options.Insert(randomInsert, correct);
+            }
+
+            string questionText = System.Net.WebUtility.HtmlDecode((string)q["question"]);
             Questions.Add(new Question(
                   questionText,
                   correct,
