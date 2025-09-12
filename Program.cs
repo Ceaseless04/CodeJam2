@@ -37,6 +37,7 @@ class Program
         }
 
 
+
         public override async Task<int> ExecuteAsync([NotNull] CommandContext context, [NotNull] Settings settings)
         {
             TriviaGame game = new TriviaGame(settings.NumQuestions, settings.NumPlayers, settings.Difficulty, settings.Category);
@@ -53,23 +54,23 @@ class Program
             while (!game.IsOver())
             {
                 Question currQuestion = game.Questions[game.Turn];
-                Console.WriteLine(currQuestion.Text);
+                AnsiConsole.MarkupLine($"\n[blue]{currQuestion.Text}[/]");
                 int choice = 1;
                 foreach (string option in currQuestion.Options)
                 {
-                    Console.WriteLine($"{choice}. {option}");
+                    Console.WriteLine($"{choice}. {option}"); choice++;
                     choice++;
                 }
                 foreach (Player player in game.Players)
                 {
-                    Console.WriteLine($"{player.Name} make your guess: ");
+                    AnsiConsole.Markup($"\n[blue]{player.Name}[/], make your guess: ");
                     string guess = Console.ReadLine();
                     game.MakeGuess(guess, player, currQuestion);
                 }
                 //show score
                 foreach (Player player in game.Players)
                 {
-                    Console.WriteLine($"{player.Name}: {player.Score}");
+                    AnsiConsole.MarkupLine($"[yellow]{player.Name}[/]: [green]{player.Score}[/]");
                 }
                 game.Turn++;
 

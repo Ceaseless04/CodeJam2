@@ -1,6 +1,5 @@
 ﻿using Newtonsoft.Json.Linq;
 using Spectre.Console;
-
 using System.Diagnostics;
 
 public class TriviaGame
