@@ -40,6 +40,14 @@ class Program
         public override async Task<int> ExecuteAsync([NotNull] CommandContext context, [NotNull] Settings settings)
         {
             TriviaGame game = new TriviaGame(settings.NumQuestions, settings.NumPlayers, settings.Difficulty, settings.Category);
+           
+            AnsiConsole.Write(
+            new FigletText("WELCOME TO TRIVIA!")
+           .Centered()
+           .Color(Color.Yellow));
+
+            AnsiConsole.MarkupLine("[green]Let's see how smart you really are![/]\n");
+
             await game.MakeGame();
 
             while (!game.IsOver())
