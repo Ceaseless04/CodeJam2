@@ -22,7 +22,7 @@ class Program
             [DefaultValue(1)]
             public int NumPlayers { get; init; }
             [CommandOption("-n|--questions")]
-            [DefaultValue(1)]
+            [DefaultValue(10)]
             public int NumQuestions { get; init; }
 
             [CommandOption("-d|--difficulty")]

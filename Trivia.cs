@@ -18,7 +18,7 @@ public class TriviaGame
     public Categories Category { get; set; }
 
 
-    public TriviaGame(int numQuestions = 10, int numPlayers = 1, string difficultyInput = "Easy", string categoryInput = "All")
+    public TriviaGame(int numQuestions = 10, int numPlayers = 1, string difficultyInput = "All", string categoryInput = "All")
     {
         NumQuestions = numQuestions;
         NumPlayers = numPlayers;
@@ -26,11 +26,11 @@ public class TriviaGame
         if (!Enum.TryParse(difficultyInput, true, out Difficulties difficulty))
         {
             Console.WriteLine("Invalid difficulty. Defaulting to Easy.");
-            difficulty = Difficulties.Easy;
+            difficulty = Difficulties.easy;
         }
         Difficulty = difficulty;
 
-        if (!Enum.TryParse(difficultyInput, true, out Categories category))
+        if (!Enum.TryParse(categoryInput, true, out Categories category))
         {
             Console.WriteLine("Invalid category. Defaulting to Easy.");
             category = Categories.All;
@@ -59,10 +59,12 @@ public class TriviaGame
             url += $"&category={(int)Category}";
         }
 
-        if (Difficulty != Difficulties.Easy)
+        if (Difficulty != Difficulties.all)
         {
             url += $"&difficulty={Difficulty}";
         }
+
+        url += "&type=multiple";
 
         string json = await client.GetStringAsync(url);
 
@@ -113,7 +115,9 @@ public class TriviaGame
             return false;
         }
 
-        bool isCorrect = guess == question.CorrectAnswer;
+        int guessInt = int.Parse(guess) - 1;
+
+        bool isCorrect = question.Options[guessInt] == question.CorrectAnswer;
         player.updateScore(isCorrect);
         return isCorrect;
     }
