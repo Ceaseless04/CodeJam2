@@ -80,6 +80,7 @@ class Program
                 foreach (Player player in game.Players)
                 {
                     AnsiConsole.Markup($"\n[blue]{player.Name}[/], make your guess: ");
+                    // alternative (since you're using AnsiConsole), is AnsiConsole.Ask<string>() for consistentcy
                     string guess = Console.ReadLine();
                     while(!game.MakeGuess(guess, player, currQuestion))
                     {
@@ -92,6 +93,13 @@ class Program
                 {
                     AnsiConsole.MarkupLine($"[yellow]{player.Name}[/]: [green]{player.Score}[/]");
                 }
+                /*
+                    - Really like the overall logic of the game so far!
+                    - Sort of overkill, but advancing turns directly could be fragile since Turn is publicly mutable
+                    - An alternative could be:
+                        - adding a method like 'game.NextTurn()' that increments the turn internally
+                        - and handles any related logic
+                */
                 game.Turn++;
 
                 

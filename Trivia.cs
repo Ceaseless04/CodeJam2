@@ -72,6 +72,31 @@ public class TriviaGame
 
         string json = await client.GetStringAsync(url);
 
+        // Great use of API, however, for future cases,
+        // make sure to also include error handling (makes debugging easier)
+        // for example:
+        // - Wrap the `GetStringAsync` call in try/catch for HttpRequestException
+        // - Validate that `data["results"]` is not null or empty before iterating
+        /*
+            code example:
+            try
+            {
+                json = await client.GetStringAsync(url);
+            }
+            catch (HttpRequestException ex)
+            {
+                AnsiConsole.MarkupLine($"[red]Failed to fetch questions: {ex.Message}[/]");
+                return new HttpRequestException(ex);
+            }
+
+            var data = JObject.Parse(json);
+
+            if (data["response_code"] == null || (int)data["response_code"] != 0)
+            {
+                AnsiConsole.MarkupLine("[red]API returned an error or no questions available.[/]");
+                return;
+            }
+        */
         var data = Newtonsoft.Json.Linq.JObject.Parse(json);
         var results = data["results"];
 
